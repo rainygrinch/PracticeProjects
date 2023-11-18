@@ -12,6 +12,10 @@ opponent_score = 0
 
 def main():
 
+    while True: # this loop lets the user repeatedly play they game until they chose to exit
+        player_choice = user_choice() # set return of user_choice func to player_choice variable for later use
+        op = rand_choice() # set return of rand_choice fund to op variable for later use
+        compare(player_choice, op) # passes player_choice and op variable into compare func
     while True:
         player_choice = user_choice()
         op = rand_choice()
@@ -23,6 +27,8 @@ def user_choice():
     print("2. Paper")
     print("3. Scissors")
     print("4. Exit")
+    player_choice = int(input(">")) # get user input
+    # todo handle exceptions
     player_choice = int(input(">"))
     if player_choice == 4:
         print("You quit the game")
@@ -41,6 +47,7 @@ def display_choices(player_choice, op):
         3:"Scissors"
     }
 
+# print each player's selection
     print(f">> You chose: {choice_dict[player_choice]}<<")
     print(f">>Opponent chose: {choice_dict[op]}<<\n")
 
